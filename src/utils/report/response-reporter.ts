@@ -1,11 +1,11 @@
 import addContext from 'mochawesome/addContext.js';
 
-// Fungsi helper untuk menyimpan response sementara di test context
+// Helper function to temporarily store responses
 export function setTestResponse(testContext: Mocha.Context, response: any) {
     (testContext.test as any).apiResponse = response;
 }
 
-// Hook yang mengecek apakah test gagal, jika gagal lampirkan response
+// Attach API Response if test failed
 export function attachOnFailure(this: Mocha.Context) {
     const currentTest = this.currentTest as any;
     if (currentTest && currentTest.state === 'failed' && currentTest.apiResponse) {
