@@ -1,8 +1,8 @@
-﻿# 🧪 ReqRes API Automation Testing Framework
+# 🧪 ReqRes API Automation Testing Framework
 
 An enterprise-ready, modular API Automation Testing suite for [ReqRes.in](https://reqres.in) built with **TypeScript**, **Mocha**, **Chai**, and **Supertest**.
 
-Designed with strict separation of concerns (Layered Service Pattern), JSON Schema validation, custom HTML reporting, and modern TypeScript runtime execution (	sx).
+Designed with strict separation of concerns (Layered Service Pattern), JSON Schema validation, custom HTML reporting, and modern TypeScript runtime execution (tsx).
 
 ---
 
@@ -28,7 +28,7 @@ Designed with strict separation of concerns (Layered Service Pattern), JSON Sche
 - **Positive & Negative Scenarios**: Comprehensive validation covering HTTP status codes, schema compliance, payload validation, boundary, and error handling.
 - **Strict JSON Schema Validation**: Automated schema checks using chai-json-schema to guarantee API contract stability.
 - **Smart Failure Reporting**: Custom Mochawesome hook that automatically attaches the full HTTP Response Body & Status Code only when a test fails.
-- **High-Performance Execution**: Powered by 	sx (esbuild) for zero-compilation-overhead TypeScript execution.
+- **High-Performance Execution**: Powered by tsx (esbuild) for zero-compilation-overhead TypeScript execution.
 
 ---
 
@@ -36,7 +36,7 @@ Designed with strict separation of concerns (Layered Service Pattern), JSON Sche
 
 The project adheres to the **Service Object Pattern** to ensure high maintainability and reusability:
 
-`	ext
+```
 reqres-automation-api/
 ├── mochawesome-report/             # Generated HTML & JSON test reports
 ├── src/
@@ -52,13 +52,13 @@ reqres-automation-api/
 │   │   └── temp-users.spec.ts
 │   └── utils/                      # Helper utilities
 │       └── report/
-│           └── response-reporter.ts# Mochawesome failure attachment utility
+│           └── response-reporter.ts # Mochawesome failure attachment utility
 ├── .env                            # Environment variables (Base URL, API Keys)
 ├── .env.example                    # Sample environment template
 ├── package.json                    # Project scripts & dependencies
 ├── tsconfig.json                   # TypeScript compiler configuration
 └── README.md                       # Project documentation
-`
+```
 
 ---
 
@@ -78,29 +78,32 @@ reqres-automation-api/
 ## 📋 Prerequisites
 
 Before running the project, ensure you have the following installed:
-- **Node.js**: 18.x or higher (Recommended: 20.x or 22.x)
-- **npm**: 9.x or higher
+- **Node.js**: 18.x or higher (Recommended: 20.x or 22.x)
+- **npm**: 9.x or higher
 
 Check your installed versions:
-`ash
+
+```bash
 node -v
 npm -v
-`
+```
 
 ---
 
 ## 🚀 Getting Started
 
 1. **Clone the Repository**
-   `ash
+
+   ```bash
    git clone <repository-url>
    cd reqres-automation-api
-   `
+   ```
 
 2. **Install Dependencies**
-   `ash
+
+   ```bash
    npm install
-   `
+   ```
 
 ---
 
@@ -108,15 +111,16 @@ npm -v
 
 Create a .env file in the root directory (or copy from .env.example):
 
-`ash
+```bash
 cp .env.example .env
-`
+```
 
 Define the configuration variables:
-`env
+
+```env
 BASE_URL=https://reqres.in/api
 API_KEY=your_optional_api_key_here
-`
+```
 
 | Variable | Description | Default |
 | :--- | :--- | :--- |
@@ -129,9 +133,9 @@ API_KEY=your_optional_api_key_here
 
 To execute all test suites and generate the HTML report:
 
-`ash
+```bash
 npm test
-`
+```
 
 > **Cross-Platform Compatibility**: The test script is configured to run smoothly across **Windows (PowerShell / CMD)**, **macOS**, and **Linux**.
 
@@ -146,19 +150,25 @@ After running the tests, an interactive HTML report is automatically compiled in
 Open the generated HTML report in your preferred browser:
 
 - **Windows (PowerShell):**
-  `powershell
+
+  ```powershell
   Start-Process mochawesome-report/mochawesome.html
-  `
+  ```
+
 - **macOS:**
-  `ash
+
+  ```bash
   open mochawesome-report/mochawesome.html
-  `
+  ```
+
 - **Linux:**
-  `ash
+
+  ```bash
   xdg-open mochawesome-report/mochawesome.html
-  `
+  ```
 
 ### 💡 Smart Failure Context
+
 To keep reports lightweight and clutter-free:
 - **Passing tests** display a clean pass status without unnecessary data dumps.
 - **Failing tests** automatically attach the full **HTTP Status**, **Headers**, and **Response Body JSON** under the Context dropdown to accelerate debugging and root-cause analysis.
@@ -186,8 +196,8 @@ The test suite covers the complete **E2E CRUD Life Cycle** of the /users endpoin
 
 1. **DRY (Don't Repeat Yourself)**: All endpoints are abstracted inside UserService. If an endpoint path or header changes, edits are localized to a single service file.
 2. **Schema & Contract Testing**: We validate not just status codes, but the shape of the data using JSON Schemas to ensure backend regressions are caught immediately.
-3. **Resilience to Rate Limiting (HTTP 429)**: Public sandbox APIs like ReqRes enforce strict IP-based rate limiting (typically 40 requests/window). Using 	sx and consolidated test runs minimizes unnecessary network roundtrips.
-4. **Contextual Debugging via Hooks**: Using Mocha's fterEach lifecycle hook to dynamically inspect 	his.currentTest.state === 'failed' ensures that diagnostic logs are captured only when actually needed.
+3. **Resilience to Rate Limiting (HTTP 429)**: Public sandbox APIs like ReqRes enforce strict IP-based rate limiting (typically 40 requests/window). Using tsx and consolidated test runs minimizes unnecessary requests.
+4. **Contextual Debugging via Hooks**: Using Mocha's afterEach lifecycle hook to dynamically inspect `this.currentTest.state === 'failed'` ensures that diagnostic logs are captured only when actually needed.
 
 ---
 
