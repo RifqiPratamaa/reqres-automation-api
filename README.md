@@ -38,26 +38,26 @@ The project adheres to the **Service Object Pattern** to ensure high maintainabi
 
 `	ext
 reqres-automation-api/
-├── mochawesome-report/             # Generated HTML & JSON test reports
+├── mochawesome-report/                # Generated HTML & JSON test reports
 ├── src/
-│   ├── config/                     # Environment configuration & constants
+│   ├── config/                        # Environment configuration & constants
 │   │   └── environment.ts
-│   ├── payloads/                   # Reusable request payloads (Mock Data)
+│   ├── payloads/                      # Reusable request payloads (Mock Data)
 │   │   └── users.payload.ts
-│   ├── schemas/                    # JSON Schemas for response contract assertions
+│   ├── schemas/                       # JSON Schemas for response contract assertions
 │   │   └── users.schema.ts
-│   ├── services/                   # Encapsulated API HTTP request abstractions
+│   ├── services/                      # Encapsulated API HTTP request abstractions
 │   │   └── users.service.ts
-│   ├── tests/                      # Test suites (Mocha specs)
+│   ├── tests/                         # Test suites (Mocha specs)
 │   │   └── temp-users.spec.ts
-│   └── utils/                      # Helper utilities
+│   └── utils/                         # Helper utilities
 │       └── report/
-│           └── response-reporter.ts# Mochawesome failure attachment utility
-├── .env                            # Environment variables (Base URL, API Keys)
-├── .env.example                    # Sample environment template
-├── package.json                    # Project scripts & dependencies
-├── tsconfig.json                   # TypeScript compiler configuration
-└── README.md                       # Project documentation
+│           └── response-reporter.ts   # Mochawesome failure attachment utility
+├── .env                               # Environment variables (Base URL, API Keys)
+├── .env.example                       # Sample environment template
+├── package.json                       # Project scripts & dependencies
+├── tsconfig.json                      # TypeScript compiler configuration
+└── README.md                          # Project documentation
 `
 
 ---
