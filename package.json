@@ -1,0 +1,32 @@
+{
+  "name": "reqres-automation-api",
+  "version": "1.0.0",
+  "description": "reqres.in API automation testing for SG-EDTS Hiring Process - Rifqi Ardian Pratama",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --import=tsx \"src/tests/**/*.ts\" --reporter mochawesome --timeout 10000"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "Rifqi Ardian Pratama",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.3.20",
+    "@types/chai-json-schema": "^1.4.10",
+    "@types/mocha": "^10.0.10",
+    "@types/supertest": "^7.2.1",
+    "chai": "^4.5.0",
+    "chai-json-schema": "^1.5.1",
+    "mocha": "^11.8.0",
+    "mochawesome": "^8.0.1",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2",
+    "supertest": "^7.2.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
+  }
+}
